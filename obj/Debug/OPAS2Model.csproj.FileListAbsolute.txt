@@ -1,0 +1,10 @@
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\obj\Debug\OPAS2Model.csprojResolveAssemblyReference.cache
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\OPAS2Model.dll.config
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\OPAS2Model.dll
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\OPAS2Model.pdb
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\EntityFramework.dll
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\EntityFramework.xml
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\obj\Debug\OPAS2Model.dll
+C:\data\MyProjs\99Flow\EnouFlow\OPAS2Model\obj\Debug\OPAS2Model.pdb
