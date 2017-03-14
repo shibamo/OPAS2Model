@@ -73,6 +73,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -108,6 +109,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_CostCenterControllerRelation")]
@@ -222,6 +224,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -257,6 +260,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_BizDocumentSerialNoGenerator")]
@@ -295,6 +299,7 @@ namespace OPAS2Model
     public bool isVisible { get; set; } = true;
     public DateTime createTime { get; set; } = DateTime.Now;
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -330,6 +335,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_PurchaseReq")]
@@ -396,6 +402,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -431,6 +438,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_PurchaseReqDetail")]
@@ -459,6 +467,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -494,6 +503,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_PurchaseOrder")]
@@ -561,6 +571,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -596,6 +607,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_PurchaseOrderDetail")]
@@ -635,6 +647,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -670,6 +683,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_GoodsReceiving")]
@@ -793,6 +807,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -828,6 +843,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_Payment")]
@@ -899,6 +915,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -934,6 +951,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_PaymentDetail")]
@@ -967,6 +985,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -1002,6 +1021,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_Vendor")]
@@ -1037,6 +1057,7 @@ namespace OPAS2Model
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
     public virtual List<VendorBank> banks { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -1072,6 +1093,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_VendorBank")]
@@ -1088,6 +1110,7 @@ namespace OPAS2Model
     public string branchName { get; set; }
     public string SWIFTCode { get; set; }
     public string remark { get; set; }
+    public bool isDefaultBank { get; set; } = true;
     public bool isVisible { get; set; } = true;
     public string creator { get; set; }
     public int creatorUserId { get; set; }
@@ -1095,6 +1118,7 @@ namespace OPAS2Model
     public string updateUser { get; set; }
     public int updateUserId { get; set; }
     public DateTime? updateTime { get; set; }
+    #region 自定义字段列表
     public int? intField_1 { get; set; }
     public int? intField_2 { get; set; }
     public int? intField_3 { get; set; }
@@ -1130,6 +1154,7 @@ namespace OPAS2Model
     public DateTime? dateTimeField_3 { get; set; }
     public DateTime? dateTimeField_4 { get; set; }
     public DateTime? dateTimeField_5 { get; set; }
+    #endregion
   }
 
   [Table("Enou_AttachFile")]
