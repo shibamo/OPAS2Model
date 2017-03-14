@@ -31,6 +31,7 @@ namespace OPAS2Model
 
     public DbSet<CostCenter> costCenters { get; set; }
     public DbSet<CostCenterControllerRelation> costCenterControllerRelations { get; set; }
+    public DbSet<CostCenterUserRelation> costCenterUserRelations { get; set; }
     public DbSet<CurrencyType> currencyTypes { get; set; }
     public DbSet<CurrencyHistoryRecord> currencyHistoryRecords { get; set; }
     public DbSet<CostElementType> costElementTypes { get; set; }
@@ -117,9 +118,28 @@ namespace OPAS2Model
   {
     [Key]
     public int costCenterControllerRelationId { get; set; }
-    public virtual CostCenter costCenter { get; set; }
+    [ForeignKey("CostCenter")]
+    public int costCenterId { get; set; }
+    public virtual CostCenter CostCenter { get; set; }
     public int userId { get; set; } // userId of the controller
     public string userGuid { get; set; }
+    public bool isVisible { get; set; } = true;
+    public string creator { get; set; }
+    public int creatorUserId { get; set; }
+    public DateTime createTime { get; set; } = DateTime.Now;
+  }
+
+  [Table("Enou_CostCenterUserRelation")]
+  public class CostCenterUserRelation
+  {
+    [Key]
+    public int costCenterUserRelationId { get; set; }
+    [ForeignKey("CostCenter")]
+    public int costCenterId { get; set; }
+    public virtual CostCenter CostCenter { get; set; }
+    public int userId { get; set; } // userId
+    public string userGuid { get; set; }
+    public bool isCostCenterHead { get; set; } = false;
     public bool isVisible { get; set; } = true;
     public string creator { get; set; }
     public int creatorUserId { get; set; }
