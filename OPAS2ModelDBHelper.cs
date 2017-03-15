@@ -188,6 +188,64 @@ namespace OPAS2Model
     }
     #endregion
 
+    #region 用户成本中心设置
+    public static void setUserCostCenter(
+      int costCenterId, int userId, string userGuid, OPAS2DbContext db)
+    {
+      var relation = db.costCenterUserRelations.Where(
+        obj => obj.userId == userId && obj.costCenterId == costCenterId).FirstOrDefault();
+      if (relation != null) // 指定的绑定关系已存在,可直接返回
+      {
+        relation.isVisible = true;
+        db.SaveChanges();
+        return;
+      }
+
+      relation = db.costCenterUserRelations.Where(
+        obj => obj.userId == userId && obj.costCenterId != costCenterId).FirstOrDefault();
+      if (relation != null) // 如果存在其他绑定关系,则需要先删除
+      {
+        db.costCenterUserRelations.Remove(relation);
+        db.SaveChanges();
+      }
+
+      relation = db.costCenterUserRelations.Create();
+      relation.CostCenter = db.costCenters.Find(costCenterId) ;
+      relation.userId = userId;
+      relation.userGuid = userGuid;
+      db.costCenterUserRelations.Add(relation);
+
+      db.SaveChanges();
+    }
+
+    public static void unsetUserCostCenter(int userId, int costCenterId,
+      OPAS2DbContext db) //直接删除关系,一个用户只属于一个成本中心
+    {
+      var relation = db.costCenterUserRelations.Where(
+        obj => obj.userId == userId && 
+              obj.costCenterId == costCenterId).FirstOrDefault();
+      if (relation != null)
+      {
+        db.costCenterUserRelations.Remove(relation);
+        db.SaveChanges();
+      }
+    }
+
+    public static CostCenter getUserCostCenter(
+      int userId, OPAS2DbContext db)
+    {
+      CostCenter result = null;
+      var relation = db.costCenterUserRelations.Where(
+        obj => obj.userId == userId && 
+                obj.isVisible==true).FirstOrDefault();
+      if (relation!=null)
+      {
+        result = relation.CostCenter;
+      }
+      return result;
+    }
+    #endregion
+
     #region 获取单据对象相关
     public static PurchaseReq getPR(string guid, OPAS2DbContext db)
     {
