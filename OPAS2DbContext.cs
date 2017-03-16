@@ -655,6 +655,7 @@ namespace OPAS2Model
     public decimal amount { get; set; } // should be quantity*price
     public decimal amountInRMB { get; set; } // should be quantity*price*mainCurrencyRate
     public decimal receivedQuantity { get; set; }
+    public decimal paidQuantity { get; set; }
     public decimal paidAmount { get; set; }
     public string description { get; set; }
     public string WBSNo { get; set; }
