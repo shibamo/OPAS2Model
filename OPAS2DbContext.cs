@@ -52,6 +52,7 @@ namespace OPAS2Model
     public DbSet<FunctionPermission> functionPermissions { get; set; }
     public DbSet<UserFunctionPermissionRelation> userFunctionPermissionRelations { get; set; }
     public DbSet<RoleFunctionPermissionRelation> roleFunctionPermissionRelations { get; set; }
+    public DbSet<DelegationHistoryRecord> delegationHistoryRecords { get; set; }
   }
 
   [Table("Enou_CostCenter")]
@@ -1269,5 +1270,45 @@ namespace OPAS2Model
     public virtual FunctionPermission FunctionPermission { get; set; }
     public DateTime createTime { get; set; } = DateTime.Now;
     public bool isValid { get; set; } = true;
+  }
+
+  [Table("Enou_DelegationHistoryRecord")]
+  public class DelegationHistoryRecord
+  {
+    [Key]
+    public int delegationHistoryRecordId { get; set; }
+    public string guid { get; set; } = Guid.NewGuid().ToString();
+    public DateTime effectiveTimeFrom { get; set; }
+    public DateTime effectiveTimeTo { get; set; }
+    public bool isVisible { get; set; } = true;
+    public int delegatorUserId { get; set; } // 委托人
+    public string delegatorUserGuid { get; set; }
+    public int delegateeUserId { get; set; } // 被委托人
+    public string delegateeUserGuid { get; set; }
+    public EnumBizDocumentType bizDocumentType { get; set; } // 受委托的商业单据类型
+    public string creatorUserGuid { get; set; } // 创建该委托关系的用户(有可能是管理员代为创建)
+    public int creatorUserId { get; set; }
+    public DateTime createTime { get; set; } = DateTime.Now;
+
+    // 查找指定用户所代理的其他用户userId列表
+    public static List<int> getCurrentDelegatorUserIds(int delegateeUserId, 
+      OPAS2DbContext db)
+    {
+      return db.delegationHistoryRecords.Where(obj=> 
+        obj.delegateeUserId==delegateeUserId &&
+        obj.effectiveTimeFrom>DateTime.Now &&
+        obj.effectiveTimeTo < DateTime.Now &&
+        obj.isVisible)?.Select(obj=>obj.delegatorUserId)?.
+        ToList();
+    }
+    // 查找指定用户所指定的代理历史记录列表
+    public static List<DelegationHistoryRecord> getDelegationHistoryRecords(
+      int delegatorUserId, OPAS2DbContext db)
+    {
+      return db.delegationHistoryRecords.Where(obj =>
+        obj.delegatorUserId == delegatorUserId &&
+        obj.isVisible)?.OrderByDescending(
+          obj=>obj.effectiveTimeFrom).ToList();
+    }
   }
 }
