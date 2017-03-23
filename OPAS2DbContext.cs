@@ -1290,16 +1290,18 @@ namespace OPAS2Model
     public int creatorUserId { get; set; }
     public DateTime createTime { get; set; } = DateTime.Now;
 
-    // 查找指定用户所代理的其他用户userId列表
-    public static List<int> getCurrentDelegatorUserIds(int delegateeUserId, 
+    // 查找指定用户所代理的其他用户Guid列表
+    public static List<string> getCurrentDelegatorUserGuids(int delegateeUserId, 
       OPAS2DbContext db)
     {
-      return db.delegationHistoryRecords.Where(obj=> 
-        obj.delegateeUserId==delegateeUserId &&
-        obj.effectiveTimeFrom>DateTime.Now &&
-        obj.effectiveTimeTo < DateTime.Now &&
-        obj.isVisible)?.Select(obj=>obj.delegatorUserId)?.
+      var list = db.delegationHistoryRecords.Where(obj =>
+        obj.delegateeUserId == delegateeUserId &&
+        obj.effectiveTimeFrom < DateTime.Now &&
+        obj.effectiveTimeTo > DateTime.Now &&
+        obj.isVisible)?.Select(obj => obj.delegatorUserGuid).
         ToList();
+
+      return list.Distinct().ToList();
     }
     // 查找指定用户所指定的代理历史记录列表
     public static List<DelegationHistoryRecord> getDelegationHistoryRecords(
