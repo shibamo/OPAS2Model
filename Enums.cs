@@ -61,7 +61,7 @@ namespace OPAS2Model
   {
     Initial = 1,    // 初始阶段,一般处于流程审批阶段,需等待流程完成,不能直接发生PO等后续表单
     Open,           // 可以直接发生GR/PM等后续表单
-    Closed          // 关闭状态,不能直接发生GR/PM等后续表单
+    Closed          // 关闭状态,不能直接发生GR/PM等后续表单, 可能是被用户关闭或流程实例被terminate
   }
 
   public enum EnumUserMessageType
