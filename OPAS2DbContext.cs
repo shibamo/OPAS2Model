@@ -53,6 +53,8 @@ namespace OPAS2Model
     public DbSet<UserFunctionPermissionRelation> userFunctionPermissionRelations { get; set; }
     public DbSet<RoleFunctionPermissionRelation> roleFunctionPermissionRelations { get; set; }
     public DbSet<DelegationHistoryRecord> delegationHistoryRecords { get; set; }
+    public DbSet<UserAuthenticationToken> userAuthenticationTokens { get; set; }
+    
   }
 
   [Table("Enou_CostCenter")]
@@ -1312,5 +1314,20 @@ namespace OPAS2Model
         obj.isVisible)?.OrderByDescending(
           obj=>obj.effectiveTimeFrom).ToList();
     }
+  }
+
+  [Table("Enou_UserAuthenticationToken")]
+  public class UserAuthenticationToken
+  {
+    [Key]
+    public int userAuthenticationTokenId { get; set; }
+    public string guid { get; set; } = Guid.NewGuid().ToString();
+    [Required]
+    public int userId { get; set; }
+    [Required]
+    public string userGuid { get; set; }
+    public DateTime expireTime { get; set; } = DateTime.Now.AddDays(365);
+    public bool isVisible { get; set; } = true;
+    public DateTime createTime { get; set; } = DateTime.Now;
   }
 }
