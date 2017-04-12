@@ -203,6 +203,37 @@ namespace OPAS2Model
     }
     #endregion
 
+    #region 币种管理
+    public static CurrencyType getCurrencyType(int currencyTypeId)
+    {
+      using (OPAS2DbContext db = new OPAS2DbContext())
+      {
+        return getCurrencyType(currencyTypeId, db);
+      }
+    }
+
+    public static CurrencyType getCurrencyType(int currencyTypeId, OPAS2DbContext db)
+    {
+      return db.currencyTypes.Find(currencyTypeId);
+    }
+    #endregion
+
+    #region 供应商管理
+    public static Vendor getVendor(int vendorId)
+    {
+      using (OPAS2DbContext db = new OPAS2DbContext())
+      {
+        return getVendor(vendorId, db);
+      }
+    }
+
+    public static Vendor getVendor(int vendorId, OPAS2DbContext db)
+    {
+      return db.vendors.Find(vendorId);
+    }
+    #endregion
+
+
     #region 用户成本中心设置
     public static void setUserCostCenter(
       int costCenterId, int userId, string userGuid, OPAS2DbContext db)

@@ -18,5 +18,15 @@ namespace OPAS2Model
         { EnumPRItemType.Other, "Other/其他"}
       }[item];
     }
+
+    public static string getPOTypeName(EnumPOType item)
+    {
+      return new Dictionary<EnumPOType, string>()
+      {
+        { EnumPOType.PO, "Purchase Order/采购订单"},
+        { EnumPOType.Contract, "Contract/合同"},
+      }[item];
+    }
+
   }
 }
