@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BizSettings.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="EnumsHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OPAS2DbContext.cs" />
     <Compile Include="OPAS2ModelDBHelper.cs" />

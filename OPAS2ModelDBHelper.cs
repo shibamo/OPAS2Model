@@ -188,6 +188,21 @@ namespace OPAS2Model
     }
     #endregion
 
+    #region 成本中心管理
+    public static CostCenter getCostCenter(int costCenterId)
+    {
+      using(OPAS2DbContext db = new OPAS2DbContext())
+      {
+        return getCostCenter(costCenterId, db);
+      }
+    }
+
+    public static CostCenter getCostCenter(int costCenterId, OPAS2DbContext db)
+    {
+      return db.costCenters.Find(costCenterId);
+    }
+    #endregion
+
     #region 用户成本中心设置
     public static void setUserCostCenter(
       int costCenterId, int userId, string userGuid, OPAS2DbContext db)
@@ -244,6 +259,7 @@ namespace OPAS2Model
       }
       return result;
     }
+
     #endregion
 
     #region 获取单据对象相关
